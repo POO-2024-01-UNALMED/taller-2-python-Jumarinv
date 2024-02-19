@@ -30,7 +30,7 @@ class Motor ():
 
 	def asignarTipo (self, tipo):
 
-		if tipo == ("gasolina" or "electrico"):
+		if tipo in ("gasolina", "electrico"):
 
 			self.tipo = tipo
 
@@ -67,9 +67,15 @@ class Auto ():
 
 		for i in self.asientos:
 
-			if self.registro != i.registro:
+			if type(i) == Asiento:
 
-				return ("Las piezas no son originales")
+				if self.registro != i.registro:
+
+					return ("Las piezas no son originales")
+
+
+			
 
 
 		return ("Auto original")
+
